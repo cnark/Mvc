@@ -14,5 +14,17 @@ namespace MvcSandbox.Controllers
         {
             return View();
         }
+
+        [ProblemErrorPolicy]
+        [HttpGet("/test")]
+        public ActionResult<Person> PostString([FromQuery]int id)
+        {
+            return new Person { Id = 1 };
+        }
+
+        public class Person
+        {
+            public int Id { get; set; }
+        }
     }
 }
